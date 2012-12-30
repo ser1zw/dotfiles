@@ -72,8 +72,9 @@
 ;;     (setq initial-frame-alist '((width . 120) (height . 25))))
 
 ;; Emacsをサーバ化(emacsclientが使えるようになる)
-;; http://k-ui.jp/?p=243
-(server-start)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 ;; 対応するカッコのハイライト表示
 (show-paren-mode t)
