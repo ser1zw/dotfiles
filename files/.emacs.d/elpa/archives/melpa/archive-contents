@@ -1698,7 +1698,7 @@
 		    (0 1)))
 		  "A flymake handler for coffee script [source: github]" single])
  (flycheck .
-	   [(20121230 30)
+	   [(20121230 1521)
 	    ((s
 	      (1 3 0))
 	     (dash
@@ -1829,6 +1829,21 @@
  (elscreen .
 	   [(20120413 1107)
 	    nil "Emacs window session manager [source: github]" single])
+ (elpy .
+       [(20121205 1404)
+	((pymacs
+	  (0 25))
+	 (auto-complete
+	  (1 4))
+	 (yasnippet
+	  (0 8))
+	 (fuzzy
+	  (0 1))
+	 (virtualenv
+	  (1 2))
+	 (highlight-indentation
+	  (0 5 0)))
+	"Emacs Lisp Python Environment [source: github]" single])
  (elpa-audit .
 	     [(20121121 1747)
 	      nil "Handy functions for inspecting and comparing package archives [source: github]" single])
@@ -2167,7 +2182,7 @@
 		(3 0)))
 	      "vCard import/export for BBDB [source: github]" tar])
  (bbdb .
-       [(20121226 2334)
+       [(20121230 40)
 	nil "core of BBDB [source: git]" tar])
  (bash-completion .
 		  [(20111120 1539)
