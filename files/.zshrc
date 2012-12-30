@@ -1,13 +1,42 @@
 # -*- mode: sh-mode; coding: utf-8-unix -*-
 
 ########################################################################
+### Option
+########################################################################
+export EDITOR=vi
+export GIT_EDITOR=emacsclient
+bindkey -e
+export LANG=ja_JP.UTF-8
+export LESSCHARSET=UTF-8
+setopt auto_cd
+setopt auto_pushd
+#setopt correct
+setopt nolistbeep
+unsetopt promptcr
+setopt no_beep
+setopt share_history
+setopt hist_reduce_blanks
+setopt hist_ignore_all_dups
+
+case "${OSTYPE}" in
+darwin*)
+	PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH" # GNU coreutils
+	GNUTERM=x11
+	export GNUTERM
+	;;
+linux*)
+	eval `dircolors -b` # set LS_COLORS automatically (GNU style)
+	;;
+esac
+
+
+########################################################################
 ### Completion
 ########################################################################
 autoload -U compinit
 compinit
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # ignore up/downcase
-# zstyle ':completion:*' list-colors ''
 case "${OSTYPE}" in
 linux*)
 	eval `dircolors -b` # set LS_COLORS automatically (GNU style)
@@ -29,12 +58,6 @@ setopt share_history	# share command history data
 ########################################################################
 ### aliases
 ########################################################################
-case "${OSTYPE}" in
-darwin*)
-	PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH" # GNU coreutils
-	;;
-esac
-
 alias ls="ls --color=auto"
 alias rm="rm -i"
 alias cp="cp -i"
@@ -42,11 +65,6 @@ alias mv="mv -i"
 
 # zmvコマンドを使う (http://mollifier.hatenablog.com/entry/20101227/p1)
 autoload -Uz zmv
-PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH" # GNU coreutils
-alias ls='ls --color'
-
-GNUTERM=x11
-export GNUTERM
 alias zmv='noglob zmv -W'
 
 
@@ -71,26 +89,6 @@ vcs_info_wrapper() {
   fi
 }
 RPROMPT=$'$(vcs_info_wrapper)'
-
-
-########################################################################
-### Option
-########################################################################
-export EDITOR=vi
-export GIT_EDITOR=emacsclient
-bindkey -e
-export LANG=ja_JP.UTF-8
-export LESSCHARSET=UTF-8
-setopt auto_cd
-setopt auto_pushd
-#setopt correct
-setopt nolistbeep
-unsetopt promptcr
-setopt no_beep
-setopt share_history
-setopt hist_reduce_blanks
-setopt hist_ignore_all_dups
-
 
 
 ########################################################################
