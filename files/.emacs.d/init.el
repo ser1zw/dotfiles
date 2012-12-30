@@ -9,7 +9,7 @@
 (setq init-loader-show-log-after-init nil) ; 起動時のログバッファを表示しない (M-x init-loader-show-log で表示可能)
 (init-loader-load (concat user-emacs-directory "/config"))
 
-(if (> (length (init-loader-error-log)) 0) ; エラーがあったときだけログバッファを表示する
+(if (not (equal (init-loader-error-log) "")) ; エラーがあったときだけログバッファを表示する
     (init-loader-show-log))
 
 ;; Byte-compile all config files
