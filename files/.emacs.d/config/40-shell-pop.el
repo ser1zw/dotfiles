@@ -1,0 +1,21 @@
+;; -*- mode: emacs-lisp; coding: utf-8-unix -*-
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; shell-pop
+;; http://emacs.g.hatena.ne.jp/k1LoW/20090602/1243911791
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path (concat user-emacs-directory "/plugin/shell-pop"))
+(require 'shell-pop)
+(shell-pop-set-internal-mode "ansi-term")
+(shell-pop-set-internal-mode-shell "/bin/zsh")
+(defvar ansi-term-after-hook nil)
+(add-hook 'ansi-term-after-hook
+          (function
+           (lambda ()
+             (define-key term-raw-map "\C-ct" 'shell-pop))))
+(defadvice ansi-term (after ansi-term-after-advice (arg))
+  "run hook as after advice"
+  (run-hooks 'ansi-term-after-hook))
+(ad-activate 'ansi-term)
+(global-set-key "\C-ct" 'shell-pop)
+

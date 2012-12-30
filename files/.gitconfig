@@ -1,0 +1,11 @@
+[user]
+	name = ser1zw
+	email = azariahsawtikes@gmail.com
+[alias]
+	co = checkout
+	st = status
+	br = branch
+[color]
+	diff = auto
+[merge]
+	tool = meld

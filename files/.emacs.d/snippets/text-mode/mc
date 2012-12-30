@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name : (magic comment)
+# --
+`comment-start`-*- mode: `(replace-regexp-in-string "-mode$" "" (symbol-name major-mode))`; coding: `buffer-file-coding-system` -*-`comment-end`
+

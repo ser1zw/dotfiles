@@ -1,0 +1,14 @@
+# ~/.tmuxinator/ruby-opencv.yml
+# you can make as many tabs as you wish...
+
+project_name: ruby-opencv
+project_root: $HOME/Projects/ruby-opencv
+tabs:
+  - main:
+      layout: main-vertical
+      panes:
+        - clear && git status
+        - cd test && clear
+  - src: cd ext/opencv && clear
+  - work: cd $HOME/work && clear
+  - home: cd $HOME && clear

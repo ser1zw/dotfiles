@@ -1,0 +1,19 @@
+#contributor : Nishio Hirokazu
+#name : main tamplate
+# --
+`(progn 
+  (setq *yas-as3-classname*
+   ;;(capitalize (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))
+   (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))
+  "")
+`package {
+  import flash.display.Sprite;
+  
+  [SWF(width="400", height="300", backgroundColor="#eeffee")] 
+  public class `*yas-as3-classname*` extends Sprite {
+    
+    public function `*yas-as3-classname*`() {
+      
+    }
+  }
+}
