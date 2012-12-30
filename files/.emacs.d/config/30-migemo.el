@@ -6,7 +6,6 @@
 (setq migemo-directory (concat user-emacs-directory "/plugin/migemo"))
 (setq migemo-command "cmigemo")
 (setq migemo-options '("-q" "--emacs"))
-;; (setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
 (setq migemo-dictionary (concat migemo-directory "/" "utf-8/migemo-dict"))
 (setq migemo-user-dictionary nil)
 (setq migemo-regex-dictionary nil)

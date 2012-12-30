@@ -7,9 +7,13 @@ autoload -U compinit
 compinit
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # ignore up/downcase
-eval `dircolors -b` # set LS_COLORS automatically (GNU style)
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # zstyle ':completion:*' list-colors ''
+case "${OSTYPE}" in
+linux*)
+	eval `dircolors -b` # set LS_COLORS automatically (GNU style)
+	;;
+esac
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 
 ########################################################################
@@ -25,6 +29,12 @@ setopt share_history	# share command history data
 ########################################################################
 ### aliases
 ########################################################################
+case "${OSTYPE}" in
+darwin*)
+	PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH" # GNU coreutils
+	;;
+esac
+
 alias ls="ls --color=auto"
 alias rm="rm -i"
 alias cp="cp -i"
@@ -32,6 +42,11 @@ alias mv="mv -i"
 
 # zmvコマンドを使う (http://mollifier.hatenablog.com/entry/20101227/p1)
 autoload -Uz zmv
+PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH" # GNU coreutils
+alias ls='ls --color'
+
+GNUTERM=x11
+export GNUTERM
 alias zmv='noglob zmv -W'
 
 

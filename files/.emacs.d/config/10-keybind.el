@@ -14,4 +14,20 @@
 (global-unset-key "\C-z")
 (global-set-key "\C-z" 'zap-to-char)
 
+;; バッファの移動
+;; http://d.hatena.ne.jp/authorNari/20091225/1261667956
+(setq windmove-wrap-around t)
+(windmove-default-keybindings)
+(define-key global-map [(C M n)] 'windmove-down)
+(define-key global-map [(C M p)] 'windmove-up)
+(define-key global-map [(C M b)] 'windmove-left)
+(define-key global-map [(C M f)] 'windmove-right)
+
+;; Macの場合はCommandキーをMetaキーとして使用
+(if (equal system-type 'darwin)
+    (progn
+      (setq ns-command-modifier (quote meta))
+      (setq ns-alternate-modifier (quote super))))
+
+
 
