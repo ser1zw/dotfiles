@@ -37,11 +37,6 @@ autoload -U compinit
 compinit
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # ignore up/downcase
-case "${OSTYPE}" in
-linux*)
-	eval `dircolors -b` # set LS_COLORS automatically (GNU style)
-	;;
-esac
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 
@@ -94,13 +89,14 @@ RPROMPT=$'$(vcs_info_wrapper)'
 ########################################################################
 ### Tool
 ########################################################################
+PATH=$HOME/local/bin:$PATH
 
 ### Emacs
-PATH=$HOME/local/emacs/bin:$HOME/local/bin:$PATH
+PATH=$HOME/local/emacs/bin:$PATH
 
 
 ### Oracle Database
-local INSTANT_CLIENT_HOME=$HOME/local/instantclient_11_2
+INSTANT_CLIENT_HOME=$HOME/local/instantclient_11_2
 PATH=$INSTANT_CLIENT_HOME:$PATH
 case "${OSTYPE}" in
 linux*)
@@ -118,7 +114,7 @@ alias sqlplus='rlwrap sqlplus'
 
 
 ### OpenCV
-local OPENCV_HOME=$HOME/local/opencvlibrary
+OPENCV_HOME=$HOME/local/opencvlibrary
 PKG_CONFIG_PATH=$OPENCV_HOME/lib/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH
 case "${OSTYPE}" in
