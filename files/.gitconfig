@@ -9,3 +9,4 @@
 	diff = auto
 [merge]
 	tool = meld
+	ff = false
