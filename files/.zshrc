@@ -167,3 +167,5 @@ fpath=($HOME/.tmuxinator/completion ${fpath})
 autoload -U compinit
 compinit
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
