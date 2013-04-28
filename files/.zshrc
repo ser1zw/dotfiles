@@ -132,7 +132,7 @@ export PYTHONPATH=$OPENCV_HOME/lib/python2.7/dist-packages:$PYTHONPATH
 
 ### Ruby
 alias irb="rlwrap irb"
-source $HOME/.rbenv/completions/rbenv.zsh
+[[ -s $HOME/.rbenv/completions/rbenv.zsh ]] && source $HOME/.rbenv/completions/rbenv.zsh
 
 
 ### Python
@@ -140,7 +140,7 @@ export VIRTUALENV_DISTRIBUTE=true
 
 
 ### Java
-export JAVA_HOME=/usr/java/jdk1.7.0_09
+export JAVA_HOME=/usr/java/jdk1.7.0_21
 export PATH=$JAVA_HOME/bin:$PATH
 
 

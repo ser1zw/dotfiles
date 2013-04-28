@@ -15,9 +15,9 @@
       ;; マウスポインタの色を設定します。
       ;; (add-to-list 'default-frame-alist '(mouse-color . "SlateBlue2"))
       ;; モードラインの文字の色を設定します。
-      (set-face-foreground 'modeline "black")
+      (set-face-foreground 'mode-line "black")
       ;; モードラインの背景色を設定します。
-      (set-face-background 'modeline "MediumPurple2")
+      (set-face-background 'mode-line "MediumPurple2")
       ;; 選択中のリージョンの色を設定します。
       (set-face-background 'region "blue")
       ;; モードライン（アクティブでないバッファ）の文字色を設定します。
