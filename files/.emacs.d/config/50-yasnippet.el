@@ -1,9 +1,9 @@
 ;; -*- mode: emacs-lisp; coding: undecided-unix -*-
 
 ;; yasnippet
-(setq yasnippet-directory (concat user-emacs-directory "/elpa/yasnippet-20130722.1832"))
+(setq yasnippet-directory (get-latest-package-dir "yasnippet"))
 (add-to-list 'load-path yasnippet-directory)
-(add-to-list 'load-path (concat user-emacs-directory "/elpa/dropdown-list-20120329.1636"))
+(add-to-list 'load-path (get-latest-package-dir "dropdown-list"))
 (require 'yasnippet)
 (require 'dropdown-list)
 (autoload 'dropdown-list "dropdown-list" "dropdown-list" t)

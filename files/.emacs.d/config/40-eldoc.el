@@ -16,7 +16,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "/plugin/eldoc-extension"))
 (require 'eldoc-extension)
 
-(add-to-list 'load-path (concat user-emacs-directory "/elpa/c-eldoc-20120430.408"))
+(add-to-list 'load-path (get-latest-package-dir "c-eldoc"))
 (load "c-eldoc")
 (add-hook 'c-mode-hook
           (lambda ()

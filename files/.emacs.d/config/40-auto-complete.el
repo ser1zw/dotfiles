@@ -5,9 +5,9 @@
 ;; http://cx4a.org/software/auto-complete/index.ja.html
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq auto-complete-directory (concat user-emacs-directory "/elpa/auto-complete-20130724.1750"))
+(setq auto-complete-directory (get-latest-package-dir "auto-complete"))
 (add-to-list 'load-path auto-complete-directory)
-(add-to-list 'load-path (concat user-emacs-directory "/elpa/popup-20130324.1305"))
+(add-to-list 'load-path (get-latest-package-dir "popup"))
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories (concat auto-complete-directory "/dict"))
 (autoload 'auto-complete-config "auto-complete-config" "auto-complete-config" t)
