@@ -4,7 +4,7 @@
 ;; http://www.emacswiki.org/emacs/TabBarMode
 ;; https://github.com/dholm/tabbar
 
-(add-to-list 'load-path (concat user-emacs-directory "/elpa/tabbar-20110824.1439"))
+(add-to-list 'load-path (get-latest-package-dir "tabbar"))
 (require 'tabbar)
 (tabbar-mode 1)
 (tabbar-mwheel-mode -1)
