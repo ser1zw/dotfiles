@@ -4,7 +4,7 @@
 ;; C/Migemo
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq migemo-directory (concat user-emacs-directory "/plugin/migemo"))
-(setq migemo-command "cmigemo")
+(setq migemo-command "/usr/local/bin/cmigemo")
 (setq migemo-options '("-q" "--emacs"))
 (setq migemo-dictionary (concat migemo-directory "/" "utf-8/migemo-dict"))
 (setq migemo-user-dictionary nil)

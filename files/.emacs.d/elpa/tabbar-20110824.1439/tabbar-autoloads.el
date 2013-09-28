@@ -9,9 +9,9 @@
 ;;;;;;  tabbar-mwheel-forward tabbar-mwheel-backward tabbar-press-scroll-right
 ;;;;;;  tabbar-press-scroll-left tabbar-press-home tabbar-forward-tab
 ;;;;;;  tabbar-backward-tab tabbar-forward-group tabbar-backward-group
-;;;;;;  tabbar-forward tabbar-backward) "tabbar" "tabbar.el" (20703
-;;;;;;  26713))
-;;; Generated autoloads from tabbar.el
+;;;;;;  tabbar-forward tabbar-backward) "tabbar" "../../../../../.emacs.d/elpa/tabbar-20110824.1439/tabbar.el"
+;;;;;;  "892d40a04ac9c8fabf47af83cd95ed7b")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/tabbar-20110824.1439/tabbar.el
 
 (autoload 'tabbar-backward "tabbar" "\
 Select the previous available tab.
@@ -172,7 +172,9 @@ Returns non-nil if the new state is enabled.
 
 ;;;***
 
-;;;### (autoloads nil nil ("tabbar-pkg.el") (20703 26713 747208))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/tabbar-20110824.1439/tabbar-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/tabbar-20110824.1439/tabbar.el")
+;;;;;;  (21007 39988 674478))
 
 ;;;***
 
