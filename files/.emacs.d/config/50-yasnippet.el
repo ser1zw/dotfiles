@@ -13,12 +13,11 @@
 			     yas/completing-prompt
 			     yas/no-prompt))
 
-(setf user-snippet-dir (concat user-emacs-directory "/snippets")) 
-(setf default-snippet-dir (concat yasnippet-directory "/snippets"))
-(setq yas-snippet-dirs
-      '("~/.emacs.d/snippets"
-	"~/.emacs.d/elpa/yasnippet-0.8.0/snippets"
-	))
+(setq yas/snippet-dirs
+      (list
+       (concat user-emacs-directory "/snippets")
+       (concat yasnippet-directory "/snippets")))
+
 (global-set-key [(C \;)] 'yas/expand)
 (yas-global-mode 1)
 
