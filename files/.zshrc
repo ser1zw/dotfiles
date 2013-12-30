@@ -170,3 +170,9 @@ compinit
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+case "${OSTYPE}" in
+darwin*)
+	export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+	;;
+esac
+
