@@ -1,5 +1,4 @@
 ;; -*- mode: emacs-lisp; coding: utf-8-unix -*-
-(require 'cl)
 
 ;;; スクロールバーを右側に表示する
 (set-scroll-bar-mode 'right)
@@ -90,12 +89,4 @@
 
 ;; (setq max-specpdl-size 10000)
 ;; (setq max-lisp-eval-depth 10000)
-
-(defun get-latest-package-dir (pkg-name &optional dir)
-  (setq dir (or dir (concat user-emacs-directory "/elpa")))
-  (setq pkg-dir (find-if '(lambda (d) (string-match (concat "^" pkg-name) d))
-			 (directory-files dir)))
-  (concat dir "/" pkg-dir))
-
-
 
