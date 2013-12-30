@@ -13,7 +13,7 @@
 
 ;; eldoc-extension
 ;; http://www.emacswiki.org/cgi-bin/wiki/download/eldoc-extension.el
-(add-to-list 'load-path (concat user-emacs-directory "/plugin/eldoc-extension"))
+(add-to-list 'load-path (get-latest-package-dir "eldoc-extension"))
 (require 'eldoc-extension)
 
 (add-to-list 'load-path (get-latest-package-dir "c-eldoc"))
