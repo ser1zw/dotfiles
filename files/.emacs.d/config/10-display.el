@@ -54,3 +54,8 @@
 			 :underline nil :slant normal :weight normal :height 150 :width normal
 			 :foundry "unknown" :family "VL ゴシック")))))
 
+(set-fontset-font
+ nil 'japanese-jisx0208
+ (font-spec :family "Hiragino Kaku Gothic ProN"))
+
+

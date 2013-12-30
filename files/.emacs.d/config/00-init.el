@@ -97,5 +97,9 @@
 			 (directory-files dir)))
   (concat dir "/" pkg-dir))
 
+(add-hook 'after-init-hook '(lambda ()
+			      (mapc
+			       (lambda (buf) (set-buffer buf) (cd (expand-file-name "~"))) (buffer-list))))
+
 
 
