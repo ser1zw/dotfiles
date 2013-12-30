@@ -140,7 +140,7 @@ export VIRTUALENV_DISTRIBUTE=true
 
 
 ### Java
-export JAVA_HOME=/usr/java/jdk1.7.0_21
+export JAVA_HOME=/usr/java/jdk1.7.0_45
 export PATH=$JAVA_HOME/bin:$PATH
 
 
@@ -169,3 +169,4 @@ compinit
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
