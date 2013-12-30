@@ -9,6 +9,7 @@
 (tabbar-mode 1)
 (tabbar-mwheel-mode -1)
 (setq tabbar-buffer-groups-function nil)
+(setq tabbar-separator '(1.0))
 
 (set-face-attribute
  'tabbar-default nil

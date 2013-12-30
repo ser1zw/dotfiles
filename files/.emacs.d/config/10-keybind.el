@@ -13,6 +13,7 @@
 ;; C-zでzap-to-char (M-zのやつ)
 (global-unset-key "\C-z")
 (global-set-key "\C-z" 'zap-to-char)
+(global-set-key [?\C-:] 'zap-to-char)
 
 ;; バッファの移動
 ;; http://d.hatena.ne.jp/authorNari/20091225/1261667956

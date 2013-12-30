@@ -2,5 +2,5 @@ files/.emacs.d/auto-save-list
 files/.emacs.d/ac-comphist.dat
 files/.emacs.d/session.*
 files/.emacs.d/tramp
-files/.emacs.d/elpa/*
+files/.emacs.d/elpa/archives/
 

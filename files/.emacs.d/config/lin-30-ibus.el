@@ -5,13 +5,21 @@
 ;; http://www11.atwiki.jp/s-irie/pages/21.html
 ;; (参考 http://d.hatena.ne.jp/supermassiveblackhole/20100609)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/ibus/")
-(require 'ibus)
-(add-hook 'after-init-hook 'ibus-mode-on)
+;; (add-to-list 'load-path "/usr/share/emacs/site-lisp/ibus/")
+;; (require 'ibus)
+;; (add-hook 'after-init-hook 'ibus-mode-on)
 
-(global-set-key "\C-o" 'ibus-toggle)
-(global-set-key "\C-\\" 'ibus-toggle)
-(ibus-define-common-key ?\C-\s nil) ; C-SPC は Set Mark に使う
-(setq ibus-cursor-color '("green" "yellow" "red")) ; IBusの状態によってカーソル色を変化させる
+;; (global-set-key "\C-o" 'ibus-toggle)
+;; (global-set-key "\C-\\" 'ibus-toggle)
+;; (ibus-define-common-key ?\C-\s nil) ; C-SPC は Set Mark に使う
+;; (setq ibus-cursor-color '("green" "yellow" "red")) ; IBusの状態によってカーソル色を変化させる
 
+;; https://wiki.debian.org/JapaneseEnvironment/Mozc
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/emacs-mozc/")
+(require 'mozc)
+(set-language-environment "Japanese")
+(setq default-input-method "japanese-mozc")
+;; (setq mozc-candidate-style 'overlay)
+(setq mozc-candidate-style 'echo-area)
+(global-set-key "\C-o" 'toggle-input-method)
 

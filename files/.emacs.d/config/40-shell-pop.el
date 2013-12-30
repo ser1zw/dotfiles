@@ -2,20 +2,14 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; shell-pop
-;; http://emacs.g.hatena.ne.jp/k1LoW/20090602/1243911791
+;; https://github.com/kyagi/shell-pop-el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path (concat user-emacs-directory "/plugin/shell-pop"))
+(add-to-list 'load-path (get-latest-package-dir "shell-pop"))
 (require 'shell-pop)
-(shell-pop-set-internal-mode "ansi-term")
-(shell-pop-set-internal-mode-shell "/bin/zsh")
-(defvar ansi-term-after-hook nil)
-(add-hook 'ansi-term-after-hook
-          (function
-           (lambda ()
-             (define-key term-raw-map "\C-ct" 'shell-pop))))
-(defadvice ansi-term (after ansi-term-after-advice (arg))
-  "run hook as after advice"
-  (run-hooks 'ansi-term-after-hook))
-(ad-activate 'ansi-term)
-(global-set-key "\C-ct" 'shell-pop)
+(custom-set-variables
+ '(shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell)))))
+ '(shell-pop-term-shell "/bin/zsh")
+ '(shell-pop-universal-key "\C-ct")
+ '(shell-pop-window-height 50)
+ '(shell-pop-window-position "bottom"))
 

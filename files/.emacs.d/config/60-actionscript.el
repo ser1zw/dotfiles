@@ -1,6 +1,6 @@
 ;; -*- mode: emacs-lisp; coding: utf-8-unix -*-
 
-(add-to-list 'load-path (concat user-emacs-directory "/plugin/actionscript-mode"))
+(add-to-list 'load-path (get-latest-package-dir "actionscript-mode"))
 
 ;; via http://blog.pettomato.com/content/site-lisp/.emacs
 (defvar running-on-x (eq window-system 'x))
