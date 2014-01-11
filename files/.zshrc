@@ -20,6 +20,7 @@ setopt hist_ignore_all_dups
 
 case "${OSTYPE}" in
 darwin*)
+	export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 	PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH" # GNU coreutils
 	GNUTERM=x11
 	export GNUTERM
@@ -169,10 +170,4 @@ compinit
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-case "${OSTYPE}" in
-darwin*)
-	export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
-	;;
-esac
 
