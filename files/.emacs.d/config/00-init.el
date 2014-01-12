@@ -90,3 +90,5 @@
 ;; (setq max-specpdl-size 10000)
 ;; (setq max-lisp-eval-depth 10000)
 
+(add-to-list 'exec-path "/usr/local/bin")
+
