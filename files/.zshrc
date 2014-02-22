@@ -149,6 +149,11 @@ export PATH=$JAVA_HOME/bin:$PATH
 alias clisp='clisp -q'
 
 
+### Go
+export GOROOT=$HOME/local/go
+export PATH=$PATH:$GOROOT/bin
+
+
 ### tmux
 # tmuxでキャプションをカレントディレクトリ名or実行中のコマンド名にする
 # http://d.hatena.ne.jp/sugyan/20100121/1264000100
