@@ -141,7 +141,7 @@ export VIRTUALENV_DISTRIBUTE=true
 
 
 ### Java
-export JAVA_HOME=/usr/java/jdk1.7.0_45
+export JAVA_HOME=/usr/java/jdk1.8.0_05
 export PATH=$JAVA_HOME/bin:$PATH
 
 
