@@ -151,6 +151,7 @@ alias clisp='clisp -q'
 
 ### Go
 export GOROOT=$HOME/local/go
+export GOPATH=$HOME/local/gopath
 export PATH=$PATH:$GOROOT/bin
 
 
