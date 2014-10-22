@@ -95,6 +95,8 @@ PATH=$HOME/local/bin:$PATH
 ### Emacs
 PATH=$HOME/local/emacs/bin:$PATH
 
+### GNU Global
+PATH=$HOME/local/global/bin:$PATH
 
 ### Oracle Database
 INSTANT_CLIENT_HOME=$HOME/local/instantclient_11_2
