@@ -5,6 +5,7 @@
 ;; http://www.bookshelf.jp/soft/meadow_42.html#SEC638
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path (concat user-emacs-directory "/plugin/gtags"))
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/global")
 (autoload 'gtags-mode "gtags" "" t)
 (setq gtags-mode-hook
       '(lambda ()
