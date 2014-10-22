@@ -2,6 +2,7 @@
 (require 'cl)
 
 (setq user-emacs-directory (expand-file-name "~/.emacs.d"))
+(setq load-prefer-newer t)
 
 (defun get-latest-package-dir (pkg-name &optional dir)
   (setq dir (or dir (concat user-emacs-directory "/elpa")))
