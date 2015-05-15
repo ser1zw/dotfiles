@@ -10,3 +10,5 @@
 [merge]
 	tool = meld
 	ff = false
+[http]
+	sslverify = false
