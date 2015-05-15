@@ -3,3 +3,7 @@ if [ -d $HOME/.rbenv ]; then
     eval "$(rbenv init -)"
 fi
 
+if [ -d $HOME/perl5 ]; then
+    source $HOME/perl5/perlbrew/etc/bashrc
+fi
+
