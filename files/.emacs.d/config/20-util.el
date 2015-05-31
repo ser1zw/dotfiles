@@ -97,13 +97,8 @@
                               (char (match-string 0) 0)))
                      nil t))))
 
-;; iswitchb-mode
-(iswitchb-mode 1)
-(add-hook 'iswitchb-define-mode-map-hook
-	  (function (lambda ()
-		      (define-key iswitchb-mode-map "\C-f" 'iswitchb-next-match)
-		      (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)
-		      (define-key iswitchb-mode-map " " 'iswitchb-next-match))))
+;; icomplete-mode
+(icomplete-mode 1)
 
 ;; ウィンドウの端での折り返し有の無を切り替え
 (defun toggle-truncate-lines ()
