@@ -142,6 +142,10 @@ alias irb="rlwrap irb"
 export VIRTUALENV_DISTRIBUTE=true
 
 
+### Perl
+alias reply='rlwrap reply'
+
+
 ### Java
 export JAVA_HOME=/usr/java/jdk
 export PATH=$JAVA_HOME/bin:$PATH
