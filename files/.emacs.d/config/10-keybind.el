@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp; coding: utf-8-unix -*-
+;; -*- mode: emacs-lisp; coding: utf-8 -*-
 
 ;;; Ctrl-h を前1文字削除に変更
 (define-key global-map "\C-h" 'backward-delete-char)

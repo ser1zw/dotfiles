@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp; coding: utf-8-unix -*-
+;; -*- mode: emacs-lisp; coding: utf-8 -*-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; linum-modeで行番号を表示

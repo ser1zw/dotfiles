@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp; coding: undecided-unix -*-
+;; -*- mode: emacs-lisp; coding: utf-8 -*-
 
 ;; yasnippet
 (setq yasnippet-directory (get-latest-package-dir "yasnippet"))
@@ -18,6 +18,6 @@
        (concat user-emacs-directory "/snippets")
        (concat yasnippet-directory "/snippets")))
 
-(global-set-key [(C \;)] 'yas/expand)
+(global-set-key [(C \;)] 'yas-expand)
 (yas-global-mode 1)
 
