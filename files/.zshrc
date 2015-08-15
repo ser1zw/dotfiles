@@ -99,7 +99,7 @@ PATH=$HOME/local/emacs/bin:$PATH
 PATH=$HOME/local/global/bin:$PATH
 
 ### Oracle Database
-INSTANT_CLIENT_HOME=$HOME/local/instantclient_11_2
+INSTANT_CLIENT_HOME=$HOME/local/instantclient_12_1
 PATH=$INSTANT_CLIENT_HOME:$PATH
 case "${OSTYPE}" in
 linux*)
@@ -143,7 +143,7 @@ export VIRTUALENV_DISTRIBUTE=true
 
 
 ### Java
-export JAVA_HOME=/usr/java/jdk1.8.0_05
+export JAVA_HOME=/usr/java/jdk
 export PATH=$JAVA_HOME/bin:$PATH
 
 
