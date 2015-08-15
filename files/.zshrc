@@ -34,6 +34,13 @@ esac
 ########################################################################
 ### Completion
 ########################################################################
+if [ -d $HOME/perl5 ]; then
+    source $HOME/perl5/perlbrew/etc/perlbrew-completion.bash
+fi
+if [ -d $HOME/.nodebrew ]; then
+    fpath=($HOME/.nodebrew/completions/zsh ${fpath})
+fi
+
 autoload -U compinit
 compinit
 

@@ -13,3 +13,7 @@ if [ -d $HOME/.pyenv ]; then
     eval "$(pyenv init -)"
 fi
 
+if [ -d $HOME/.nodebrew ]; then
+    export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
+
