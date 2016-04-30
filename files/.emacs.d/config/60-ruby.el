@@ -8,8 +8,8 @@
 
 ;; ruby-electric
 (add-to-list 'load-path (get-latest-package-dir "ruby-electric"))
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
+;; (require 'ruby-electric)
+;; (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
 (defun ruby-insert-end () 
   "Insert \"end\" at point and reindent current line." 
   (interactive) 
