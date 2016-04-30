@@ -5,5 +5,5 @@ try {
 
 }
 catch (cv::Exception& e) {
-  raise_cverror(e);
+  Error::raise(e);
 }
