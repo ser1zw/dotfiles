@@ -44,7 +44,7 @@
 ;; coding systemをutf-8に
 (prefer-coding-system 'utf-8-unix)
 (set-default-coding-systems 'utf-8-unix)
-(set-buffer-file-coding-system 'utf-8-unix)
+(setq default-file-name-coding-system 'utf-8-unix)
 (add-hook 'find-file-hooks
 	  (function (lambda ()
 		      (set-default-coding-systems 'utf-8-unix))))
