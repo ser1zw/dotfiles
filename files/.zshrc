@@ -17,6 +17,7 @@ setopt no_beep
 setopt share_history
 setopt hist_reduce_blanks
 setopt hist_ignore_all_dups
+typeset -U path PATH
 
 case "${OSTYPE}" in
 darwin*)
