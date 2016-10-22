@@ -12,3 +12,5 @@
 	ff = false
 [http]
 	sslverify = false
+[core]
+	autocrlf = input
