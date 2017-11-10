@@ -1,4 +1,11 @@
 ;; -*- mode: emacs-lisp; coding: utf-8-unix -*-
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (require 'cl)
 
 (setq user-emacs-directory (expand-file-name "~/.emacs.d"))
@@ -25,3 +32,33 @@
 
 (put 'eval-expression 'disabled nil)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(auto-compression-mode t nil (jka-compr))
+ '(case-fold-search t)
+ '(current-language-environment "Japanese")
+ '(default-input-method "japanese-ibus")
+ '(display-time-mode t nil (time))
+ '(global-font-lock-mode t nil (font-lock))
+ '(package-selected-packages
+   (quote
+    (migemo yasnippet tabbar shell-pop ruby-electric rhtml-mode popwin markdown-mode magit init-loader helm go-mode git-rebase-mode git-commit-mode exec-path-from-shell eldoc-extension dropdown-list c-eldoc auto-complete auto-compile)))
+ '(shell-pop-shell-type
+   (quote
+    ("ansi-term" "*ansi-term*"
+     (lambda nil
+       (ansi-term shell-pop-term-shell)))))
+ '(shell-pop-term-shell "/bin/zsh")
+ '(shell-pop-universal-key "t")
+ '(shell-pop-window-position "bottom")
+ '(shell-pop-window-size 50)
+ '(tool-bar-mode nil nil (tool-bar)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "unknown" :family "VL ゴシック")))))
