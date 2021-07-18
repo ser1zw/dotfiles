@@ -107,7 +107,7 @@ PATH=$HOME/local/emacs/bin:$PATH
 PATH=$HOME/local/global/bin:$PATH
 
 ### Oracle Database
-INSTANT_CLIENT_HOME=$HOME/local/instantclient_12_1
+INSTANT_CLIENT_HOME=$HOME/local/instantclient_19_8
 PATH=$INSTANT_CLIENT_HOME:$PATH
 case "${OSTYPE}" in
 linux*)
@@ -142,21 +142,25 @@ export PYTHONPATH=$OPENCV_HOME/lib/python2.7/dist-packages:$PYTHONPATH
 
 
 ### Ruby
-alias irb="rlwrap irb"
+# alias irb="rlwrap irb"
 [[ -s $HOME/.rbenv/completions/rbenv.zsh ]] && source $HOME/.rbenv/completions/rbenv.zsh
 
 
 ### Python
 export VIRTUALENV_DISTRIBUTE=true
-
+export PIPENV_VENV_IN_PROJECT=true
 
 ### Perl
 alias reply='rlwrap reply'
 
 
 ### Java
-export JAVA_HOME=/usr/java/jdk
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
+
+
+### Clojure
+export PATH=$HOME/local/clojure/bin:$PATH
 
 
 ### Common Lisp
@@ -165,7 +169,7 @@ alias clisp='clisp -q'
 
 ### Go
 export GOROOT=$HOME/local/go
-export GOPATH=$HOME/local/gopath
+# export GOPATH=$HOME/local/gopath
 export PATH=$PATH:$GOROOT/bin
 
 
@@ -191,3 +195,5 @@ compinit
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
