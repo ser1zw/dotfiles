@@ -4,7 +4,7 @@
 ### Option
 ########################################################################
 export EDITOR=vi
-export GIT_EDITOR=emacsclient
+export GIT_EDITOR=vi
 bindkey -e
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=UTF-8
@@ -31,6 +31,9 @@ linux*)
 	;;
 esac
 
+# Has rlwrap command?
+which rlwrap >/dev/null
+has_rlwrap=$?
 
 ########################################################################
 ### Completion
@@ -38,8 +41,13 @@ esac
 if [ -d $HOME/perl5 ]; then
     source $HOME/perl5/perlbrew/etc/perlbrew-completion.bash
 fi
+
 if [ -d $HOME/.nodebrew ]; then
     fpath=($HOME/.nodebrew/completions/zsh ${fpath})
+fi
+
+if [ -s $HOME/.rbenv/completions/rbenv.zsh ]; then
+    source $HOME/.rbenv/completions/rbenv.zsh
 fi
 
 autoload -U compinit
@@ -100,12 +108,6 @@ RPROMPT=$'$(vcs_info_wrapper)'
 ########################################################################
 PATH=$HOME/local/bin:$PATH
 
-### Emacs
-PATH=$HOME/local/emacs/bin:$PATH
-
-### GNU Global
-PATH=$HOME/local/global/bin:$PATH
-
 ### Oracle Database
 INSTANT_CLIENT_HOME=$HOME/local/instantclient_19_8
 PATH=$INSTANT_CLIENT_HOME:$PATH
@@ -121,8 +123,9 @@ darwin*)
 esac
 NLS_LANG=JAPANESE_JAPAN.AL32UTF8
 export PATH NLS_LANG
-alias sqlplus='rlwrap sqlplus'
-
+if [ $has_rlwrap -eq 0 ]; then
+    alias sqlplus='rlwrap sqlplus'
+fi
 
 ### OpenCV
 OPENCV_HOME=$HOME/local/opencvlibrary
@@ -141,17 +144,9 @@ esac
 export PYTHONPATH=$OPENCV_HOME/lib/python2.7/dist-packages:$PYTHONPATH
 
 
-### Ruby
-# alias irb="rlwrap irb"
-[[ -s $HOME/.rbenv/completions/rbenv.zsh ]] && source $HOME/.rbenv/completions/rbenv.zsh
-
-
 ### Python
 export VIRTUALENV_DISTRIBUTE=true
 export PIPENV_VENV_IN_PROJECT=true
-
-### Perl
-alias reply='rlwrap reply'
 
 
 ### Java
@@ -169,7 +164,6 @@ alias clisp='clisp -q'
 
 ### Go
 export GOROOT=$HOME/local/go
-# export GOPATH=$HOME/local/gopath
 export PATH=$PATH:$GOROOT/bin
 
 
@@ -185,12 +179,6 @@ case "${TERM}" in
             echo -ne "\ek$(basename $(pwd))\e\\"
 	}
 esac
-
-# tmuxinator (https://github.com/aziz/tmuxinator)
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-fpath=($HOME/.tmuxinator/completion ${fpath})
-autoload -U compinit
-compinit
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
