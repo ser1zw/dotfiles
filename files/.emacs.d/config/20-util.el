@@ -109,20 +109,20 @@
 (global-set-key "\C-c\C-l" 'toggle-truncate-lines)
 
 ;; hippie-expandでいろいろ補完
-(global-set-key "\t" 'hippie-expand)
-(global-set-key [(C .)] 'hippie-expand)
-(global-set-key "\C-\\" 'hippie-expand)
-(setq hippie-expand-try-functions-list
-      '(try-expand-dabbrev
-	try-expand-dabbrev-all-buffers
-	try-expand-dabbrev-from-kill
-	try-complete-file-name-partially
-	try-complete-file-name
-	try-expand-all-abbrevs
-	;; try-expand-list
-	;; try-expand-line
-	yas/hippie-try-expand
-	(lambda (arg)
-	  (indent-for-tab-command)
-	  t)))
+;; (global-set-key "\t" 'hippie-expand)
+;; (global-set-key [(C .)] 'hippie-expand)
+;; (global-set-key "\C-\\" 'hippie-expand)
+;; (setq hippie-expand-try-functions-list
+;;       '(try-expand-dabbrev
+;; 	try-expand-dabbrev-all-buffers
+;; 	try-expand-dabbrev-from-kill
+;; 	try-complete-file-name-partially
+;; 	try-complete-file-name
+;; 	try-expand-all-abbrevs
+;; 	;; try-expand-list
+;; 	;; try-expand-line
+;; 	yas/hippie-try-expand
+;; 	(lambda (arg)
+;; 	  (indent-for-tab-command)
+;; 	  t)))
 
