@@ -4,4 +4,4 @@ files/.emacs.d/session.*
 files/.emacs.d/tramp
 files/.emacs.d/elpa/archives/
 /files/.emacs.d/recentf
-
+/files/.emacs.d/network-security.data
