@@ -40,12 +40,12 @@
  '(auto-compression-mode t nil (jka-compr))
  '(case-fold-search t)
  '(current-language-environment "Japanese")
- '(default-input-method "japanese-ibus")
+ '(default-input-method "japanese-mozc")
  '(display-time-mode t nil (time))
  '(global-font-lock-mode t nil (font-lock))
  '(package-selected-packages
    (quote
-    (migemo yasnippet tabbar shell-pop ruby-electric rhtml-mode popwin markdown-mode magit init-loader helm go-mode git-rebase-mode git-commit-mode exec-path-from-shell eldoc-extension dropdown-list c-eldoc auto-complete auto-compile)))
+    (migemo yasnippet tabbar popwin init-loader helm exec-path-from-shell auto-complete auto-compile)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
