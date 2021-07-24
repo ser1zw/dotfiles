@@ -1,9 +1,7 @@
 ;; -*- mode: emacs-lisp; coding: utf-8-unix -*-
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 (require 'cl)
@@ -23,7 +21,6 @@
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil) ; 起動時のログバッファを表示しない (M-x init-loader-show-log で表示可能)
 (init-loader-load (concat user-emacs-directory "/config"))
-
 (if (not (equal (init-loader-error-log) "")) ; エラーがあったときだけログバッファを表示する
     (init-loader-show-log))
 
@@ -45,7 +42,7 @@
  '(global-font-lock-mode t nil (font-lock))
  '(package-selected-packages
    (quote
-    (migemo yasnippet tabbar popwin init-loader helm exec-path-from-shell auto-complete auto-compile)))
+    (migemo yasnippet tabbar init-loader helm exec-path-from-shell auto-complete auto-compile)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
