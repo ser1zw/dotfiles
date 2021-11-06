@@ -79,6 +79,10 @@ alias mv="mv -i"
 autoload -Uz zmv
 alias zmv='noglob zmv -W'
 
+if which kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+  alias k=kubectl
+fi
 
 ########################################################################
 ### Prompt
