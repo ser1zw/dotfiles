@@ -42,7 +42,7 @@
  '(global-font-lock-mode t nil (font-lock))
  '(package-selected-packages
    (quote
-    (cider clojure-mode migemo yasnippet tabbar init-loader helm exec-path-from-shell)))
+    (company cider clojure-mode migemo yasnippet tabbar init-loader helm exec-path-from-shell)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
