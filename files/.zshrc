@@ -154,8 +154,12 @@ export PIPENV_VENV_IN_PROJECT=true
 
 
 ### Java
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-export PATH=$JAVA_HOME/bin:$PATH
+export SDKMAN_DIR="$HOME/.sdkman"
+if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+    export JAVA_HOME=$SDKMAN_DIR/candidates/java/current
+    export PATH=$JAVA_HOME/bin:$PATH
+fi
 
 ### Clojure
 export PATH=$HOME/local/clojure/bin:$PATH
