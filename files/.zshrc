@@ -176,15 +176,14 @@ export PATH=$PATH:$GOROOT/bin
 
 ### tmux
 # tmuxでキャプションをカレントディレクトリ名or実行中のコマンド名にする
-# http://d.hatena.ne.jp/sugyan/20100121/1264000100
 case "${TERM}" in
-    screen)
-	preexec() {
-	    echo -ne "\ek$1\e\\"
-	}
-	precmd() {
-            echo -ne "\ek$(basename $(pwd))\e\\"
-	}
+  screen)
+    preexec() {
+      tmux rename-window $1
+    }
+    precmd() {
+      tmux rename-window $(basename ${PWD})
+    }
 esac
 
 ### Added by the Heroku Toolbelt
