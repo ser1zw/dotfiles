@@ -179,10 +179,12 @@ export PATH=$PATH:$GOROOT/bin
 case "${TERM}" in
   screen)
     preexec() {
-      tmux rename-window $1
+      cmd=$(echo $1 | cut -c1-16)
+      tmux rename-window ${cmd}
     }
     precmd() {
-      tmux rename-window $(basename ${PWD})
+      dir=$(basename ${PWD} | cut -c1-16)
+      tmux rename-window ${dir}
     }
 esac
 
