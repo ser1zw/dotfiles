@@ -1,4 +1,0 @@
-#contributor : Nishio Hirokazu
-#name : Math.random
-# --
-Math.random() * ${1:100}

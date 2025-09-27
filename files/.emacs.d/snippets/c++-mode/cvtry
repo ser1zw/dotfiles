@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name : cvtry
-# --
-try {
-
-}
-catch (cv::Exception& e) {
-  Error::raise(e);
-}

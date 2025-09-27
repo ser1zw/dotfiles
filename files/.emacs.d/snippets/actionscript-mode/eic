@@ -1,4 +1,0 @@
-#contributor : Nishio Hirokazu
-#name : ExternalInterface.call(...)
-# --
-ExternalInterface.call($1{foo, args})
