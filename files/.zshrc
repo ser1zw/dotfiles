@@ -10,7 +10,6 @@ export LANG=ja_JP.UTF-8
 export LESSCHARSET=UTF-8
 setopt auto_cd
 setopt auto_pushd
-#setopt correct
 setopt nolistbeep
 unsetopt promptcr
 setopt no_beep
@@ -21,14 +20,14 @@ typeset -U path PATH
 
 case "${OSTYPE}" in
 darwin*)
-	export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
-	PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH" # GNU coreutils
-	GNUTERM=x11
-	export GNUTERM
-	;;
+  export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+  PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH" # GNU coreutils
+  GNUTERM=x11
+  export GNUTERM
+  ;;
 linux*)
-	eval `dircolors -b` # set LS_COLORS automatically (GNU style)
-	;;
+  eval `dircolors -b` # set LS_COLORS automatically (GNU style)
+  ;;
 esac
 
 # Has rlwrap command?
@@ -39,15 +38,15 @@ has_rlwrap=$?
 ### Completion
 ########################################################################
 if [ -d $HOME/perl5 ]; then
-    source $HOME/perl5/perlbrew/etc/perlbrew-completion.bash
+  source $HOME/perl5/perlbrew/etc/perlbrew-completion.bash
 fi
 
 if [ -d $HOME/.nodebrew ]; then
-    fpath=($HOME/.nodebrew/completions/zsh ${fpath})
+  fpath=($HOME/.nodebrew/completions/zsh ${fpath})
 fi
 
 if [ -s $HOME/.rbenv/completions/rbenv.zsh ]; then
-    source $HOME/.rbenv/completions/rbenv.zsh
+  source $HOME/.rbenv/completions/rbenv.zsh
 fi
 
 autoload -U compinit
@@ -75,14 +74,6 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 
-# zmvコマンドを使う (http://mollifier.hatenablog.com/entry/20101227/p1)
-autoload -Uz zmv
-alias zmv='noglob zmv -W'
-
-if which kubectl >/dev/null 2>&1; then
-  source <(kubectl completion zsh)
-  alias k=kubectl
-fi
 
 ########################################################################
 ### Prompt
@@ -110,25 +101,24 @@ RPROMPT=$'$(vcs_info_wrapper)'
 ########################################################################
 ### Tool
 ########################################################################
-PATH=$HOME/local/bin:$PATH
 
 ### Oracle Database
 INSTANT_CLIENT_HOME=$HOME/local/instantclient_19_8
 PATH=$INSTANT_CLIENT_HOME:$PATH
 case "${OSTYPE}" in
 linux*)
-	LD_LIBRARY_PATH=$INSTANT_CLIENT_HOME:$LD_LIBRARY_PATH
-	export LD_LIBRARY_PATH
-	;;
+  LD_LIBRARY_PATH=$INSTANT_CLIENT_HOME:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH
+  ;;
 darwin*)
-	DYLD_FALLBACK_LIBRARY_PATH=$INSTANT_CLIENT_HOME:$DYLD_FALLBACK_LIBRARY_PATH
-	export DYLD_FALLBACK_LIBRARY_PATH
-	;;
+  DYLD_FALLBACK_LIBRARY_PATH=$INSTANT_CLIENT_HOME:$DYLD_FALLBACK_LIBRARY_PATH
+  export DYLD_FALLBACK_LIBRARY_PATH
+  ;;
 esac
 NLS_LANG=JAPANESE_JAPAN.AL32UTF8
 export PATH NLS_LANG
 if [ $has_rlwrap -eq 0 ]; then
-    alias sqlplus='rlwrap sqlplus'
+  alias sqlplus='rlwrap sqlplus'
 fi
 
 ### OpenCV
@@ -137,13 +127,13 @@ PKG_CONFIG_PATH=$OPENCV_HOME/lib/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH
 case "${OSTYPE}" in
 linux*)
-	LD_LIBRARY_PATH=$OPENCV_HOME/share/OpenCV/3rdparty/lib:$OPENCV_HOME/lib:$LD_LIBRARY_PATH
-	export LD_LIBRARY_PATH
-	;;
+  LD_LIBRARY_PATH=$OPENCV_HOME/share/OpenCV/3rdparty/lib:$OPENCV_HOME/lib:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH
+  ;;
 darwin*)
-	DYLD_FALLBACK_LIBRARY_PATH=$OPENCV_HOME/lib:$DYLD_FALLBACK_LIBRARY_PATH
-	export DYLD_FALLBACK_LIBRARY_PATH
-	;;
+  DYLD_FALLBACK_LIBRARY_PATH=$OPENCV_HOME/lib:$DYLD_FALLBACK_LIBRARY_PATH
+  export DYLD_FALLBACK_LIBRARY_PATH
+  ;;
 esac
 export PYTHONPATH=$OPENCV_HOME/lib/python2.7/dist-packages:$PYTHONPATH
 
@@ -152,26 +142,12 @@ export PYTHONPATH=$OPENCV_HOME/lib/python2.7/dist-packages:$PYTHONPATH
 export VIRTUALENV_DISTRIBUTE=true
 export PIPENV_VENV_IN_PROJECT=true
 
-
-### Java
-export SDKMAN_DIR="$HOME/.sdkman"
-if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
-    source "$HOME/.sdkman/bin/sdkman-init.sh"
-    export JAVA_HOME=$SDKMAN_DIR/candidates/java/current
-    export PATH=$JAVA_HOME/bin:$PATH
-fi
-
-### Clojure
-export PATH=$HOME/local/clojure/bin:$PATH
-
-
 ### Common Lisp
-alias clisp='clisp -q'
-
+PATH=$PATH:$HOME/.roswell/bin
 
 ### Go
 export GOROOT=$HOME/local/go
-export PATH=$PATH:$GOROOT/bin
+PATH=$PATH:$GOROOT/bin:$HOME/go/bin
 
 
 ### tmux
@@ -188,8 +164,14 @@ case "${TERM}" in
     }
 esac
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+### Kubernetes
+if which kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi
+
 
 LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH
+
+PATH=$HOME/local/bin:$PATH
+export PATH
