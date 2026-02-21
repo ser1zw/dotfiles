@@ -30,6 +30,7 @@
 (setq-default indent-tabs-mode nil)
 
 (define-key global-map "\C-h" 'backward-delete-char)
+(define-key global-map "\C-d" 'delete-forward-char)
 
 (global-set-key "\C-z" 'undo)
 (global-set-key "\C-o" 'toggle-input-method)
@@ -46,10 +47,14 @@
 ;; yes/noをy/nでもよくする
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(require 'bs)
+(global-set-key (kbd "C-<tab>") 'bs-cycle-next)
+(global-set-key (kbd "C-<iso-lefttab>") 'bs-cycle-previous)
+
 (use-package slime
   :ensure t
   :init
-  (setq inferior-lisp-program (expand-file-name "~/.roswell/impls/x86-64/linux/sbcl-bin/2.5.6/bin/sbcl"))
+  (setq inferior-lisp-program (expand-file-name "~/local/sbcl/bin/sbcl"))
   :config
   (slime-setup '(slime-fancy)))
 (define-key slime-repl-mode-map "\C-l"
