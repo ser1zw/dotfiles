@@ -63,7 +63,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=20000
 SAVEHIST=20000
 setopt hist_ignore_dups	# ignore duplication command history list
-setopt share_history	# share command history data 
+setopt share_history	# share command history data
 
 
 ########################################################################
@@ -76,26 +76,33 @@ alias mv="mv -i"
 
 
 ########################################################################
-### Prompt
+### Prompt / Status line
 ########################################################################
 PROMPT="[%n@%M %c]$ "
 
-# get a prompt which indicates Git-branch (http://d.hatena.ne.jp/tototoshi/20110303/1299160478)
-setopt prompt_subst
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-zstyle ':vcs_info:*' enable git cvs svn
-
-# or use pre_cmd, see man zshcontrib
-vcs_info_wrapper() {
-  vcs_info
-  if [ -n "$vcs_info_msg_0_" ]; then
-    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-  fi
+# tmuxステータスラインのGitブランチ名をgitコマンド実行後・ディレクトリ変更時に更新
+_tmux_git_update() {
+  [[ -n $TMUX ]] || return
+  local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+#  [[ -n $branch ]] || return
+  tmux set-option -w @git_branch "[${branch}] "
+  tmux refresh-client -S
 }
-RPROMPT=$'$(vcs_info_wrapper)'
+
+_tmux_git_preexec() {
+  [[ $1 == git* ]] && _tmux_ran_git=1
+}
+
+_tmux_git_precmd() {
+  [[ -n $_tmux_ran_git ]] || return
+  unset _tmux_ran_git
+  _tmux_git_update
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec _tmux_git_preexec
+add-zsh-hook precmd _tmux_git_precmd
+add-zsh-hook chpwd _tmux_git_update
 
 
 ########################################################################
@@ -150,19 +157,6 @@ export GOROOT=$HOME/local/go
 PATH=$PATH:$GOROOT/bin:$HOME/go/bin
 
 
-### tmux
-# tmuxでキャプションをカレントディレクトリ名or実行中のコマンド名にする
-case "${TERM}" in
-  screen)
-    preexec() {
-      cmd=$(echo $1 | cut -c1-16)
-      tmux rename-window ${cmd}
-    }
-    precmd() {
-      dir=$(basename ${PWD} | cut -c1-16)
-      tmux rename-window ${dir}
-    }
-esac
 
 ### Kubernetes
 if which kubectl >/dev/null 2>&1; then
