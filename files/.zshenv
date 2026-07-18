@@ -13,10 +13,6 @@ if [ -d $HOME/.pyenv ]; then
   eval "$(pyenv init - zsh)"
 fi
 
-if [ -d $HOME/.nodebrew ]; then
-  export PATH=$HOME/.nodebrew/current/bin:$PATH
-fi
-
 if [ -d $HOME/.cargo ]; then
   . "$HOME/.cargo/env"
 fi

@@ -164,6 +164,11 @@ fi
 export JAVA_HOME=$HOME/.jdks/temurin-25.0.3
 PATH=$JAVA_HOME/bin:$PATH
 
+### NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH
 
