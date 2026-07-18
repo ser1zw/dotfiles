@@ -163,7 +163,7 @@ if which kubectl >/dev/null 2>&1; then
   source <(kubectl completion zsh)
 fi
 
-export JAVA_HOME=$HOME/.jdks/temurin-25.0.2
+export JAVA_HOME=$HOME/.jdks/temurin-25.0.3
 PATH=$JAVA_HOME/bin:$PATH
 
 LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
