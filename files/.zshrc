@@ -156,8 +156,6 @@ PATH=$PATH:$HOME/.roswell/bin
 export GOROOT=$HOME/local/go
 PATH=$PATH:$GOROOT/bin:$HOME/go/bin
 
-
-
 ### Kubernetes
 if which kubectl >/dev/null 2>&1; then
   source <(kubectl completion zsh)
